@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
+import React from 'react';
 
-const Header = () => {
+const Header = React.memo(() => {
     return (
         <header>
             <h1>Trip Manager</h1>
@@ -19,6 +20,6 @@ const Header = () => {
             </nav>
         </header>
     );
-};
+});
 
 export default Header;
