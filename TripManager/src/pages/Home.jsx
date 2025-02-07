@@ -1,37 +1,41 @@
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import TripList from "../components/List/TripList";
+import Filter from "../components/Utilities/Filter";
+import { TripManager } from "../components/Utilities/TripManager";
 
-import React, { useState, memo, Suspense } from 'react';
-// Importera local storage när vi lägger till det
+function TripListPage() {
+  const [trips, setTrips] = useState(TripManager.getTrips());
+  const [filter, setFilter] = useState("");
+  const navigate = useNavigate();
 
-const TripList = memo(({trips}) => { // Kan flyttas till egen komponent
-    return (
-        <ul>
-        {trips.map((trip) => (
-            <li key={trip.id}>
-                <h3>{trip.destination}</h3>
-                <p><strong>Datum:</strong> {trip.date}</p>
-                <a href={`/Details/${trip.id}`}>Se detaljer</a>
-            </li>
-        ))}
-    </ul>
-    );
-});
+  useEffect(() => {
+    setTrips(TripManager.getTrips());
+  }, []);
 
-const Home = () => {
+  const handleDeleteTrip = (id) => {
+    TripManager.delete(id);
+    setTrips([...TripManager.getTrips()]);
+  };
 
-    const [trips, setTrips] = useState([]); // Behöver ändras när local storage läggs till
+  const handleEditTrip = (id) => {
+    navigate(`/form?id=${id}`);
+  };
 
-    return (
-        <div>
-            <h1>Resor</h1>
-            {trips.length === 0 ? (
-                <p>Inga resor inplanerade.</p>
-            ) : (
-                <Suspense fallback={<p>Laddar resor...</p>}>
-                    <TripList trips={trips} />
-                </Suspense>             
-            )}
-        </div>
-    );
-};
+  const filteredTrips = trips.filter((trip) =>
+    trip.name.toLowerCase().includes(filter.toLowerCase())
+  );
 
-export default Home;
+  return (
+    <>
+      <Filter filter={filter} onFilterChange={setFilter} placeholder="Sök bland resor..." />
+      <TripList
+        trips={filteredTrips}
+        onDeleteTrip={handleDeleteTrip}
+        onEditTrip={handleEditTrip}
+      />
+    </>
+  );
+}
+
+export default TripListPage;
