@@ -1,13 +1,16 @@
 import './App.css';
 import { BrowserRouter } from 'react-router-dom';
-import Routes from './routes/Routes';
+import AppRoutes  from './routes/Routes.jsx';
+import Footer from "./assets/footer.jsx";
 
 function App() {
-
   return (
-    <BrowserRouter>
-      <Routes />
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <AppRoutes  />
+      </BrowserRouter>
+      <Footer />
+    </>
   );
 }
 
