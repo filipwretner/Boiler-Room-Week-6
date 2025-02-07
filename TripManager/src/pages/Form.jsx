@@ -13,12 +13,12 @@ function TripFormPage() {
 
   const handleAddTrip = (name, firstDate, secondDate, location) => {
     TripManager.add(name, firstDate, secondDate, location);
-    navigate("/");
+    navigate("/details/${newTrip.id");
   };
 
   const handleEditTrip = (id, name, firstDate, secondDate, location) => {
     TripManager.edit(id, name, firstDate, secondDate, location);
-    navigate("/");
+    navigate("/details/${id");
   };
 
   return (
