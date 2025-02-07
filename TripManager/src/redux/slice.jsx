@@ -18,4 +18,4 @@ const tripsSlice = createSlice({
 });
 
 export const {addTrip, removeTrip} = tripsSlice.actions;
-export default tripsSlice.reducer
+export default tripsSlice.reducer;
