@@ -25,17 +25,16 @@ function TripDetails() {
   //    Om status = 'idle', betyder det att vi inte hämtat data än.
   //    Då anropar vi "dispatch(fetchTrips())" för att starta dataladdning.
     useEffect(() => {
-        // Om status=idle kan det betyda att vi inte laddat resorna än
         if (status === 'idle') {
             dispatch(fetchTrips());
         }
     }, [status,dispatch]);
 
-    // Visa loading meddelande
+  
     if (status === 'loading') {
         return <p> laddar resa...</p>;
     }
-    //om något gått fel
+
     if(status === 'failed') {
         return <p> kunde inte ladda resan...</p>;
     }
