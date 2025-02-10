@@ -2,15 +2,19 @@
 import './App.css';
 import { BrowserRouter } from 'react-router-dom';
 import { Suspense } from 'react';
-import Fallback from './components/Fallback';
-import Routes from './routes/Routes';
+import Header from './components/Header/Header';
+import Fallback from './pages/Fallback';
+import AppRoutes from './routes/Routes';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
     <BrowserRouter>
+      <Header />
       <Suspense fallback={<Fallback />}>
-        <Routes />
+        <AppRoutes />
       </Suspense>
+      <Footer />
     </BrowserRouter>
   );
 }

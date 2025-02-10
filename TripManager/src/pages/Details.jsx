@@ -4,7 +4,7 @@ import { TripManager } from "../components/Utilities/TripManager";
 
 function TripDetails() {
   const { tripId } = useParams(); // Hämta ID från URL:en
-  const trip = TripManager.getTrip().find((t) => t.id === tripId); // Hitta resan
+  const trip = TripManager.getTrips().find((t) => t.id === tripId); // Hitta resan
 
   if (!trip) {
     return <p>Resa med ID {tripId} hittades inte.</p>;

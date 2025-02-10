@@ -8,7 +8,7 @@ function TripFormPage() {
   const [searchParams] = useSearchParams();
   const tripId = searchParams.get("id");
   const editingTrip = tripId
-    ? TripManager.getTrip().find((trip) => trip.id === tripId)
+    ? TripManager.getTrips().find((trip) => trip.id === tripId)
     : null;
 
   const handleAddTrip = (name, firstDate, secondDate, location) => {
