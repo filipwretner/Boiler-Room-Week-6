@@ -1,18 +1,20 @@
+// App.jsx
 import './App.css';
 import { BrowserRouter } from 'react-router-dom';
-import Header from './components/Header/Header';
-import AppRoutes  from './routes/Routes';
-import Footer from "./components/Footer/footer";
-
+import { Suspense } from 'react';
+import Fallback from './components/Fallback';
+import Routes from './routes/Routes';
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
-      <AppRoutes />
-      <Footer />
+      <Suspense fallback={<Fallback />}>
+        <Routes />
+      </Suspense>
     </BrowserRouter>
   );
 }
 
 export default App;
+
+
