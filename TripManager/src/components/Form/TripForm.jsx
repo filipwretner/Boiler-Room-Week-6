@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { addTrip, editTrip } from '../../redux/slice';
 import FormInput from './FormInput';
 
-const TripForm = memo(({ onAddTrip, onEditTrip, editingTrip}) => {
+const TripForm = memo(({editingTrip}) => {
     const dispatch = useDispatch();
     const [error, setError] = useState('');
 
