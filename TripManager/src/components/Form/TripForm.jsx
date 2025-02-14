@@ -1,7 +1,10 @@
 import React, { useState, memo } from 'react';
+import { useDispatch } from 'react-redux';
+import { addTrip, editTrip } from '../../redux/slice';
 import FormInput from './FormInput';
 
 const TripForm = memo(({ onAddTrip, onEditTrip, editingTrip}) => {
+    const dispatch = useDispatch();
     const [error, setError] = useState('');
 
     function handleSubmit(event) {
@@ -25,10 +28,12 @@ const TripForm = memo(({ onAddTrip, onEditTrip, editingTrip}) => {
 
         setError('');
 
-        if (onEditTrip && editingTrip) {
-            onEditTrip(editingTrip.id, name, firstDate, secondDate, location);
+        if (editingTrip) {
+            const updatedTrip = { ...editingTrip, name, firstDate, secondDate, location };
+            dispatch(editTrip(updatedTrip));
         } else {
-            onAddTrip(name, firstDate, secondDate, location);
+            const newTrip = { name, firstDate, secondDate, location, id: generateId() };
+            dispatch(addTrip(newTrip));
         }
 
         form.reset();
@@ -47,3 +52,7 @@ const TripForm = memo(({ onAddTrip, onEditTrip, editingTrip}) => {
 });
 
 export default TripForm;
+
+function generateId() {
+    return Math.random().toString(36).substring(2, 9);
+}

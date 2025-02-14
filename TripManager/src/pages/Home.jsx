@@ -2,20 +2,23 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import TripList from "../components/List/TripList";
 import Filter from "../components/Utilities/Filter";
-import { TripManager } from "../components/Utilities/TripManager";
+import { useDispatch, useSelector } from 'react-redux'; 
+import { deleteTrip, setTrips } from "../redux/slice";
+import { loadTrips, TripManager } from "../components/Utilities/TripManager";
 
 function TripListPage() {
-  const [trips, setTrips] = useState(TripManager.getTrips());
+  const trips = useSelector((state) => state.trips.trips);
+  const dispatch = useDispatch();
   const [filter, setFilter] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
-    setTrips(TripManager.getTrips());
-  }, []);
+    const storedTrips = loadTrips();
+    dispatch(setTrips(storedTrips));
+  }, [dispatch]);
 
   const handleDeleteTrip = (id) => {
-    TripManager.delete(id);
-    setTrips([...TripManager.getTrips()]);
+    dispatch(deleteTrip(id));
   };
 
   const handleEditTrip = (id) => {

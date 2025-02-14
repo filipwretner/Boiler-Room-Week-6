@@ -1,10 +1,12 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { TripManager } from "../components/Utilities/TripManager";
+import { useSelector } from "react-redux";
 
 function TripDetails() {
   const { tripId } = useParams(); // Hämta ID från URL:en
-  const trip = TripManager.getTrips().find((t) => t.id === tripId); // Hitta resan
+  const trips  = useSelector((state) => state.trips.trips);
+  
+  const trip = trips.find((trip) => trip.id === tripId);
 
   if (!trip) {
     return <p>Resa med ID {tripId} hittades inte.</p>;
