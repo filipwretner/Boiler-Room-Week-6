@@ -1,8 +1,8 @@
 import {configureStore} from '@reduxjs/toolkit';
-import tripsReducer from "./src/redux/slice";
+import tripReducer from "./slice";
 
 export const store = configureStore({
     reducer:{
-        trips: tripsReducer,
+        trips: tripReducer,
     }
 });
