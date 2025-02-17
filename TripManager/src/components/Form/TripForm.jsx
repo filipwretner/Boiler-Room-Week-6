@@ -3,8 +3,9 @@ import { editTrip } from '../../redux/slice';
 import FormInput from './FormInput';
 import { useNavigate } from 'react-router-dom';
 import { useTripManager } from '../Utilities/TripManager'; // Adjust the import path as needed
+import "./TripInput.css"
 
-const TripForm = memo(({ editingTrip }) => {
+const TripForm = ({ editingTrip }) => {
 
     const navigate = useNavigate();
     const [error, setError] = useState('');
@@ -52,6 +53,6 @@ const TripForm = memo(({ editingTrip }) => {
             <button type="submit" className="form-submit">{editingTrip ? 'Redigera resemål' : 'Lägg till resemål'}</button>
         </form>
     );
-});
+};
 
-export default TripForm;
+export default  memo (TripForm);

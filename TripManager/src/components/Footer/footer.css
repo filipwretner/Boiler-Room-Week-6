@@ -1,3 +1,10 @@
-footer{
+/* Footer.css */
 
-}
+.footer-container {
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    padding: 1rem;
+    color: #999; 
+  }
+  

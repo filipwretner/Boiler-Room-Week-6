@@ -1,0 +1,15 @@
+
+  .header-container h1 {
+    
+  }
+  
+
+  .header-container nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem; /* avstånd mellan menylänkar */
+    justify-content: center;
+    padding-left: 0.5rem;
+  }
+  
+ 

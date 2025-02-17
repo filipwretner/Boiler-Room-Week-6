@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import TripItem from "../Item/TripItem";
+import './TripList.css'; // <-- Import av CSS-filen
 
 function TripList({ trips, onDeleteTrip, onEditTrip }) {
   return (
