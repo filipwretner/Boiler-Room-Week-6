@@ -15,15 +15,21 @@ const tripSlice = createSlice({
             state.trips = state.trips.filter(trip => trip.id !== action.payload);
         },
         editTrip: (state, action) => {
-            const { id, name, firstDate, secondDate, location } = action.payload;
-            const trip = state.trips.find((trip) => trip.id === id);
+            const index = state.trips.findIndex((trip) => trip.id === action.payload.id);
 
-            if (trip) {
-              trip.name = name;
-              trip.firstDate = firstDate;
-              trip.secondDate = secondDate;
-              trip.location = location;
+            if (index !== -1) {
+              state.trips[index] = action.payload;
             }
+
+            // const { id, name, firstDate, secondDate, location } = action.payload;
+            // const trip = state.trips.find((trip) => trip.id === id);
+
+            // if (trip) {
+            //   trip.name = name;
+            //   trip.firstDate = firstDate;
+            //   trip.secondDate = secondDate;
+            //   trip.location = location;
+            // }
         },
         setTrips: (state, action) => {
             state.trips = action.payload;
@@ -31,5 +37,5 @@ const tripSlice = createSlice({
     },
 });
 
-export const {addTrip, deleteTrip, editTrip, setTrips} = tripSlice.actions;
+export const { addTrip, deleteTrip, editTrip, setTrips } = tripSlice.actions;
 export default tripSlice.reducer;

@@ -1,11 +1,14 @@
 import React, { useState, memo } from 'react';
-import { useDispatch } from 'react-redux';
-import { addTrip, editTrip } from '../../redux/slice';
+import { editTrip } from '../../redux/slice';
 import FormInput from './FormInput';
+import { useNavigate } from 'react-router-dom';
+import { useTripManager } from '../Utilities/TripManager'; // Adjust the import path as needed
 
-const TripForm = memo(({editingTrip}) => {
-    const dispatch = useDispatch();
+const TripForm = memo(({ editingTrip }) => {
+
+    const navigate = useNavigate();
     const [error, setError] = useState('');
+    const { addNewTrip, updateTrip } = useTripManager();
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -29,11 +32,11 @@ const TripForm = memo(({editingTrip}) => {
         setError('');
 
         if (editingTrip) {
-            const updatedTrip = { ...editingTrip, name, firstDate, secondDate, location };
-            dispatch(editTrip(updatedTrip));
+            updateTrip(editingTrip.id, name, firstDate, secondDate, location);
+            navigate('/');
         } else {
-            const newTrip = { name, firstDate, secondDate, location, id: generateId() };
-            dispatch(addTrip(newTrip));
+            addNewTrip(name, firstDate, secondDate, location);
+            navigate('/');
         }
 
         form.reset();
@@ -41,18 +44,14 @@ const TripForm = memo(({editingTrip}) => {
 
     return (
         <form onSubmit={handleSubmit}>
-          {error && <p className="error-message">{error}</p>}
-          <FormInput type="text" name="name" defaultValue={editingTrip ? editingTrip.name : ""} className="form-input" label="Namn: " />
-          <FormInput type="date" name="firstDate" defaultValue={editingTrip ? editingTrip.firstDate : ""} className="form-input" label="Från: " />
-          <FormInput type="date" name="secondDate" defaultValue={editingTrip ? editingTrip.secondDate : ""} className="form-input" label="Till: " />
-          <FormInput type="text" name="location" defaultValue={editingTrip ? editingTrip.location : ""} className="form-input" label="Plats: " />
-          <button type="submit" className="form-submit">{editingTrip ? 'Redigera resemål' : 'Lägg till resemål'}</button>
+            {error && <p className="error-message">{error}</p>}
+            <FormInput type="text" name="name" defaultValue={editingTrip ? editingTrip.name : ""} className="form-input" label="Namn: " />
+            <FormInput type="date" name="firstDate" defaultValue={editingTrip ? editingTrip.firstDate : ""} className="form-input" label="Från: " />
+            <FormInput type="date" name="secondDate" defaultValue={editingTrip ? editingTrip.secondDate : ""} className="form-input" label="Till: " />
+            <FormInput type="text" name="location" defaultValue={editingTrip ? editingTrip.location : ""} className="form-input" label="Plats: " />
+            <button type="submit" className="form-submit">{editingTrip ? 'Redigera resemål' : 'Lägg till resemål'}</button>
         </form>
-      );
+    );
 });
 
 export default TripForm;
-
-function generateId() {
-    return Math.random().toString(36).substring(2, 9);
-}

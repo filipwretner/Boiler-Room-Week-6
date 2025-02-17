@@ -4,7 +4,7 @@ import TripList from "../components/List/TripList";
 import Filter from "../components/Utilities/Filter";
 import { useDispatch, useSelector } from 'react-redux'; 
 import { deleteTrip, setTrips } from "../redux/slice";
-import { loadTrips, TripManager } from "../components/Utilities/TripManager";
+import { loadTrips } from "../components/Utilities/TripManager";
 
 function TripListPage() {
   const trips = useSelector((state) => state.trips.trips);
@@ -14,7 +14,10 @@ function TripListPage() {
 
   useEffect(() => {
     const storedTrips = loadTrips();
-    dispatch(setTrips(storedTrips));
+
+    if (storedTrips.length > 0) {
+      dispatch(setTrips(storedTrips));
+    }
   }, [dispatch]);
 
   const handleDeleteTrip = (id) => {
