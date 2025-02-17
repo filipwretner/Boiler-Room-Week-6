@@ -7,4 +7,12 @@
     padding: 1rem;
     color: #999; 
   }
-  
+h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+p {
+    margin: 5px;
+}

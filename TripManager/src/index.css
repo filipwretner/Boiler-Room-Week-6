@@ -5,7 +5,7 @@
   text-align: center;
 }
 body {
-  background-color: rgb(182, 211, 191);
+  background-color: #B3C6A7;
   color: rgb(8, 8, 22);
   font-family: system-ui, 'Segoe UI', 'Open Sans', 'Helvetica';
   display: flex;
@@ -18,3 +18,4 @@ body {
   color: rgb(185, 6, 6);
   margin-top: 0.5rem; /* avstånd från övrigt innehåll */
 }
+
