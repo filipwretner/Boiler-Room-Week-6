@@ -1,14 +1,28 @@
-.trip-list-container {
-    margin-bottom: 1rem;
-  }
+.trip-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 20px; 
+  padding: 20px;
+  justify-content: center;
+}
 
-  /* Själva listan (ul) */
+
+@media (max-width: 1024px) {
   .trip-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem; /* avstånd mellan resor */
+      grid-template-columns: repeat(3, 1fr);
   }
-  
+}
+
+
+@media (max-width: 768px) {
+  .trip-list {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media (max-width: 480px) {
+  .trip-list {
+      grid-template-columns: repeat(1, 1fr);
+  }
+}
