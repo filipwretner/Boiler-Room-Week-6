@@ -1,5 +1,5 @@
 // App.jsx
-import './App.css';
+import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import { Suspense } from 'react';
 import Header from './components/Header/Header';

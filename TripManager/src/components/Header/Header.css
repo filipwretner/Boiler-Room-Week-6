@@ -1,0 +1,28 @@
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #222;
+}
+  
+
+  .header-container nav ul {
+    font-size: 1.2rem;
+    list-style: none;
+    display: flex;
+    gap: 1rem; /* avstånd mellan menylänkar */
+    justify-content: center;
+    padding-left: 0.5rem;
+  }
+  nav a {
+    text-decoration: none;
+    color: #5A3E85;
+    font-weight: bold;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #8A66C1;
+}
+ 
