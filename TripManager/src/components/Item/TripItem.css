@@ -1,0 +1,66 @@
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-edit, .btn-delete, .btn-details {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.btn-edit:hover, .btn-delete:hover, .btn-details:hover{
+    opacity: 0.6;
+} 
+.btn-edit {
+    background: #5A3E85;
+    color: white;
+}
+
+.btn-delete {
+    background: #d9534f;
+    color: white;
+}
+
+.btn-details {
+    background-color: rgb(119, 163, 52);
+    color: rgb(255, 255, 255);
+    display: inline-block;
+}
+
+
+.trip-item {
+    background: rgb(247, 240, 240);
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 350px;
+    text-align: center;
+    border-left: 15px solid #5A3E85;
+}
+
+.trip-info {
+    padding-bottom: 10px;
+    border-bottom: 2px solid #5A3E85; 
+    margin-bottom: 10px;
+}
+
+.trip-item h3 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+
+.trip-item p {
+    font-size: 16px;
+    margin: 5px 0;
+}

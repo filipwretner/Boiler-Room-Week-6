@@ -1,0 +1,37 @@
+.trip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  max-width: 100%;
+  overflow-x: hidden; /* Förhindra horisontell scroll */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.trip-item {
+  flex: 1 1 250px; /* Minst 250px, växer proportionellt */
+  max-width: 300px; 
+  box-sizing: border-box;
+}
+
+
+@media (max-width: 1024px) {
+  .trip-list {
+      grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .trip-list {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media (max-width: 480px) {
+  .trip-list {
+      grid-template-columns: repeat(1, 1fr);
+  }
+}

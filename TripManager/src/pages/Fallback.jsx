@@ -1,4 +1,4 @@
-// Fallback.jsx
+// Fallback page if the page is not loaded properly
 import React, { Component } from 'react';
 
 class Fallback extends Component {
