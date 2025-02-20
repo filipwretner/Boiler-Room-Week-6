@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import '../pages/Details.css';
 
 function TripDetails() {
   const { tripId } = useParams(); // Hämta ID från URL:en
@@ -14,7 +15,7 @@ function TripDetails() {
   }
 
   return (
-    <div>
+    <div className="detailsInfo">
       <button onClick={() => navigate("/")}>Till startsidan</button>
       <h2>Detaljer om resan: {trip.name}</h2>
       <p><strong>Från datum:</strong> {trip.firstDate}</p>
