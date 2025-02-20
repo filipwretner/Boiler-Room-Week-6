@@ -1,9 +1,18 @@
 .trip-list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); 
-  gap: 20px; 
-  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
   justify-content: center;
+  max-width: 100%;
+  overflow-x: hidden; /* Förhindra horisontell scroll */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.trip-item {
+  flex: 1 1 250px; /* Minst 250px, växer proportionellt */
+  max-width: 300px; 
+  box-sizing: border-box;
 }
 
 

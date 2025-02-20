@@ -10,7 +10,7 @@ h1 {
     font-size: 1.2rem;
     list-style: none;
     display: flex;
-    gap: 1rem; /* avstånd mellan menylänkar */
+    gap: 1rem; 
     justify-content: center;
     padding-left: 0.5rem;
   }

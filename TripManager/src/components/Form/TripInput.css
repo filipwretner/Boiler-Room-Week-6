@@ -1,8 +1,8 @@
 
 .form-page-container { 
     width: 100%;
-    max-width: 600px;       /* Du kan justera efter behov */
-    margin: 2rem;      /* auto centrerar horisontellt */
+    max-width: 600px;     
+    margin: 2rem;      
     padding: 2rem;
     border-radius: 24px;
     text-align: center; 
@@ -35,7 +35,7 @@
     
   }
   .form-submit {
-    background: #5A3E85; /* Samma lila färg som länkarna */
+    background: #5A3E85; 
     color: white;
     padding: 10px 15px;
     font-size: 16px;
