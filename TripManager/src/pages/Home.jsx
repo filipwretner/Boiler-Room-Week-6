@@ -7,11 +7,14 @@ import { deleteTrip, setTrips } from "../redux/slice";
 import { loadTrips } from "../components/Utilities/TripManager";
 
 function TripListPage() {
+
+  // Setting up state and hooks
   const trips = useSelector((state) => state.trips.trips);
   const dispatch = useDispatch();
   const [filter, setFilter] = useState("");
   const navigate = useNavigate();
 
+  // Updates global state when dispacthing
   useEffect(() => {
     const storedTrips = loadTrips();
 
@@ -20,6 +23,7 @@ function TripListPage() {
     }
   }, [dispatch]);
 
+  // Props required for the home page
   const handleDeleteTrip = (id) => {
     dispatch(deleteTrip(id));
   };

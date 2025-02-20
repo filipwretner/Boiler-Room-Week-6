@@ -4,6 +4,7 @@ import EditTrip from "./EditTrip";
 import DeleteTrip from "./DeleteTrip";
 import "./TripItem.css";
 
+// Creates every item that is displayed in the list
 function TripItem({id, name, firstDate, secondDate, location, onDelete, onEdit }) {
   return (
     <div className="trip-item">

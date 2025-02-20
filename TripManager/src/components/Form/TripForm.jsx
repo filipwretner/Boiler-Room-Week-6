@@ -1,12 +1,13 @@
 import React, { useState, memo } from 'react';
-import { editTrip } from '../../redux/slice';
 import FormInput from './FormInput';
 import { useNavigate } from 'react-router-dom';
 import { useTripManager } from '../Utilities/TripManager'; // Adjust the import path as needed
-import "./TripInput.css"
+import "./TripInput.css";
 
+// Component for the form that is used to add or edit a trip
 const TripForm = ({ editingTrip }) => {
 
+    // Setting up state and hooks
     const navigate = useNavigate();
     const [error, setError] = useState('');
     const { addNewTrip, updateTrip } = useTripManager();
@@ -20,6 +21,7 @@ const TripForm = ({ editingTrip }) => {
         const secondDate = form.elements.namedItem('secondDate').value;
         const location = form.elements.namedItem('location').value;
 
+        // Input validation
         if (name === '' || firstDate === '' || secondDate === '' || location === '') {
             setError('Vänligen fyll i alla fält');
             return;
@@ -32,6 +34,7 @@ const TripForm = ({ editingTrip }) => {
 
         setError('');
 
+        // Changes the form based on whether we are editing a trip or adding a new one
         if (editingTrip) {
             updateTrip(editingTrip.id, name, firstDate, secondDate, location);
             navigate('/');
