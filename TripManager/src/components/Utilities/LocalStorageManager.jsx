@@ -1,3 +1,4 @@
+// Handles LocalStorage
 export const LocalStorageManager = {
     load: () => {
       const storedTrips = localStorage.getItem("trips");

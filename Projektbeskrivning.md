@@ -8,18 +8,52 @@ Applikationen består av tre sidor:
 3. Detalj sidan nås via att trycka på detaljknappen på en vald resa och visar mer information om den resa man valt.
 
 Projektetsstruktur:
+
 TripManager/
 ├── src/
-│   ├── components/
-│   │   └── Footer/
-│   │   │
-│   │   │
-│   ├── redux/
-
-│   ├── pages/
-│   └── index.js
-│   
-├── Installationsguide
-└── Projekbeskrivning.md
-
+│   App.jsx
+│   index.css
+│   main.jsx
+│
+├───components
+│   ├───Footer
+│   │       footer.css
+│   │       footer.jsx
+│   │
+│   ├───Form
+│   │       FormInput.jsx
+│   │       TripForm.jsx
+│   │       TripInput.css
+│   │
+│   ├───Header
+│   │       Header.css
+│   │       Header.jsx
+│   │
+│   ├───Item
+│   │       DeleteTrip.jsx
+│   │       EditTrip.jsx
+│   │       TripItem.css
+│   │       TripItem.jsx
+│   │
+│   ├───List
+│   │       TripList.css
+│   │       TripList.jsx
+│   │
+│   └───Utilities
+│           Filter.jsx
+│           LocalStorageManager.jsx
+│           TripManager.jsx
+│
+├───pages
+│       Details.jsx
+│       Fallback.jsx
+│       Form.jsx
+│       Home.jsx
+│
+├───redux
+│       slice.js
+│       store.js
+│
+└───routes
+        Routes.jsx
 

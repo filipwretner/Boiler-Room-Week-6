@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+// Component for the input fields in the form
 function FormInput({ type, name, defaultValue, className, label }) {
   return (
     <div className="form-group">
