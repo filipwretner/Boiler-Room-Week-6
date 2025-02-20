@@ -1,8 +1,15 @@
 import React, { memo } from "react";
 import TripItem from "../Item/TripItem";
+import { useTripManager } from "../Utilities/TripManager";
 import './TripList.css'; 
 
-function TripList({ trips, onDeleteTrip, onEditTrip }) {
+function TripList({ trips, onEditTrip }) {
+  const { deleteChosenTrip } = useTripManager();
+
+  const handleDeleteTrip = (id) => {
+    deleteChosenTrip(id);
+  }
+
   return (
     <div className="trip-list">
       {trips.map((trip) => (
@@ -13,7 +20,7 @@ function TripList({ trips, onDeleteTrip, onEditTrip }) {
           firstDate={trip.firstDate}
           secondDate={trip.secondDate}
           location={trip.location}
-          onDelete={() => onDeleteTrip(trip.id)}
+          onDelete={() => handleDeleteTrip(trip.id)}
           onEdit={() => onEditTrip(trip.id)}
         />
       ))}

@@ -20,16 +20,6 @@ const tripSlice = createSlice({
             if (index !== -1) {
               state.trips[index] = action.payload;
             }
-
-            // const { id, name, firstDate, secondDate, location } = action.payload;
-            // const trip = state.trips.find((trip) => trip.id === id);
-
-            // if (trip) {
-            //   trip.name = name;
-            //   trip.firstDate = firstDate;
-            //   trip.secondDate = secondDate;
-            //   trip.location = location;
-            // }
         },
         setTrips: (state, action) => {
             state.trips = action.payload;

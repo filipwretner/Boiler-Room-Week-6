@@ -14,9 +14,6 @@ function Header() {
             <li>
               <Link to="/form">Form</Link>
             </li>
-            <li>
-              <Link to="/details">Details</Link>
-            </li>
           </ul>
         </nav>
       </header>

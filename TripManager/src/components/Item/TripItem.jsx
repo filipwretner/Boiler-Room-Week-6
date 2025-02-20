@@ -1,9 +1,10 @@
 import React, { memo } from "react";
+import { Link } from 'react-router-dom';
 import EditTrip from "./EditTrip";
 import DeleteTrip from "./DeleteTrip";
 import "./TripItem.css";
 
-function TripItem({ name, firstDate, secondDate, location, onDelete, onEdit }) {
+function TripItem({id, name, firstDate, secondDate, location, onDelete, onEdit }) {
   return (
     <div className="trip-item">
     <div className="trip-info">
@@ -20,6 +21,9 @@ function TripItem({ name, firstDate, secondDate, location, onDelete, onEdit }) {
       </div> 
       
       <div className="btn-container">
+      <Link to={`/details/${id}`}>
+        <button className="btn-details">Detaljer</button>
+      </Link>
       <EditTrip onEdit={onEdit} />
       <DeleteTrip onDelete={onDelete} />
       </div>
