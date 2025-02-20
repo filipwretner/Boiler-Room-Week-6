@@ -30,7 +30,7 @@ Installera nödvändiga paket:
 
 
 Projektetsstruktur:
-
+```
 TripManager/
 ├── src/
 │   App.jsx
@@ -78,4 +78,4 @@ TripManager/
 │
 └───routes
         Routes.jsx
-
+```
