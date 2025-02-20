@@ -1,0 +1,28 @@
+.trip-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 20px; 
+  padding: 20px;
+  justify-content: center;
+}
+
+
+@media (max-width: 1024px) {
+  .trip-list {
+      grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .trip-list {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media (max-width: 480px) {
+  .trip-list {
+      grid-template-columns: repeat(1, 1fr);
+  }
+}
