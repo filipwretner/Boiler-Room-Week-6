@@ -24,7 +24,7 @@ Installera nödvändiga paket:
 1. Öppna terminalen och skriv in cd TripManager
 2. Kör npm install
 3. Kör npm install react-router-dom
-4. Kör npm install @reduxjs/toollkit
+4. Kör npm install @reduxjs/toolkit
 5. Kör npm install react-redux
 6. Kör npm run dev för att köra applikationen i webbläsaren.
 
