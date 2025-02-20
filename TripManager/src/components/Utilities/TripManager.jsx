@@ -30,7 +30,8 @@ export const useTripManager = () => {
 
   const deleteChosenTrip = (id) => {
     dispatch(deleteTrip(id));
-    LocalStorageManager.save(trips.filter((trip) => trip.id !== id));
+    const updatedTrips = trips.filter((trip) => trip.id !== id);
+    LocalStorageManager.save(updatedTrips);
   };
 
   return { trips, addNewTrip, updateTrip, deleteChosenTrip, loadTrips };
