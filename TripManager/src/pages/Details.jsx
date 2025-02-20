@@ -18,8 +18,14 @@ function TripDetails() {
     <div className="detailsInfo">
       <button onClick={() => navigate("/")}>Till startsidan</button>
       <h2>Detaljer om resan: {trip.name}</h2>
-      <p><strong>Från datum:</strong> {trip.firstDate}</p>
-      <p><strong>Till datum:</strong> {trip.secondDate}</p>
+      {trip.firstDate === trip.secondDate ? (
+        <p>Datum: {trip.firstDate}</p>
+      ) : (
+        <>
+          <p>Från: {trip.firstDate}</p>
+          <p>Till: {trip.secondDate}</p>
+        </>
+      )}
       <p><strong>Plats:</strong> {trip.location}</p>
     </div>
   );
